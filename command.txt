@@ -1,0 +1,2 @@
+git remote add origin https://github.com/amanvista/Techstackgo_DSA.git
+git push origin master
