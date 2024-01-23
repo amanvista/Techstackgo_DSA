@@ -1,0 +1,30 @@
+//find all subsets of length M and then find min max in that
+// Input : arr[] = {1, 2, 3}
+// Output : arr[] = {3, 2, 1}
+
+// Input : arr[] = {4, 5, 1, 2}
+// Output : arr[] = {2, 1, 5, 4}
+
+//2 Pointer Approach
+<html>
+
+<body></body>
+<script>
+    var findAllSubsets = function (nums) {
+        const set = new Set();
+        set.add([]);
+        for (let i = 0; i < nums.length; i++) {
+            const subsets = [...set];
+            subsets.forEach(subset => {
+                let newSubset = subset.slice(0);
+                newSubset.push(nums[i]);
+                set.add(newSubset);
+            });
+        }
+        console.log(set)
+        return [...set];
+    };
+    findAllSubsets([1, 2, 3])
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+// The idea is to divide the array into two parts and compare the maximums and
+// minimums of the two parts to get the maximum and
+// the minimum of the whole array.
+
+// Time Complexity: O(n)
+// Auxiliary Space: O(log n) as the stack space will be filled for
+// the maximum height of the tree formed during recursive calls same as a binary tree.
+// T(n) = 2 T(n/2) + 2
+// T(2) = 1
+// T(1) = 0
+// We can solve this recurrence relation by master method/recursion tree method.
+// if n is a power of 2
+// T(n) = 3n/2 - 2
+
+var arr = [1000, 11, 445, 1, 330, 3000];
+<html>
+
+<body></body>
+<script>
+    function findMinMax(A, start, end) {
+        let max, min;
+
+        if (start === end) {
+            max = A[start];
+            min = A[start];
+        } else if (A.length === 2) {
+            if (A[start] < A[end]) {
+                max = A[end];
+                min = A[start];
+            } else {
+                max = A[start];
+                min = A[end];
+            }
+        } else {
+            const mid = Math.floor(start + (end - start) / 2);
+            const left = findMinMax(A, start, mid);
+            const right = findMinMax(A, mid + 1, end);
+
+            max = left[0] > right[0] ? left[0] : right[0];
+            min = left[1] < right[1] ? left[1] : right[1];
+        }
+
+        return [max, min];
+    }
+
+    const A = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+    const result = findMinMax(A, 0, A.length - 1);
+
+    console.log("Minimum:", result[1]);
+    console.log("Maximum:", result[0]);
+
+</script>
+
+</html>
