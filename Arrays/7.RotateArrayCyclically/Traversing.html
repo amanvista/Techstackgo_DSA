@@ -1,0 +1,19 @@
+<!-- TC=>O(N) and SC=>O(m+n) -->
+<html>
+
+<body>
+    <script>
+        function rotate(arr, n) {
+            //code here
+            const lastElement = arr[n - 1]
+            for (let i = arr.length - 1; i > 0; i--) {
+                arr[i] = arr[i - 1]
+            }
+            arr[0] = lastElement
+            return arr
+        }
+        alert(rotate([1, 2, 3],3))
+    </script>
+</body>
+
+</html>

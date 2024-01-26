@@ -11,20 +11,23 @@
 <body></body>
 <script>
     var findAllSubsets = function (nums) {
-        const set = new Set();
-        set.add([]);
-        for (let i = 0; i < nums.length; i++) {
-            const subsets = [...set];
-            subsets.forEach(subset => {
-                let newSubset = subset.slice(0);
-                newSubset.push(nums[i]);
-                set.add(newSubset);
-            });
+        let res = []
+        let subset = []
+        function dfs(i) {
+            if (i >= nums.length) {
+                res.push([...subset])
+                return
+            }
+            subset.push(nums[i])
+            dfs(i + 1)
+            subset.pop()
+            dfs(i + 1)
         }
-        console.log(set)
-        return [...set];
+        dfs(0)
+
+        return res
     };
-    findAllSubsets([1, 2, 3])
+    console.log(findAllSubsets([1, 2, 3]))
 </script>
 
 </html>

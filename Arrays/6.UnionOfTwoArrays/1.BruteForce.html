@@ -1,0 +1,16 @@
+<!-- TC=>O(N) and SC=>O(m+n) -->
+<html>
+
+<body>
+    <script>
+        function doUnion(a, n, b, m) {
+            const union = [...a]
+            b.forEach(element => { union.push(element) })
+            return Array.from(new Set(union)).length //O(n)
+            return new Set(union).size() //O(n)
+        }
+        alert(doUnion([1, 2, 3], 3, [2, 3], 2))
+    </script>
+</body>
+
+</html>
