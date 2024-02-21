@@ -1,0 +1,19 @@
+<html>
+
+<body></body>
+<script>
+    function maxSubarraySum(arr, N) {
+        // code here
+        let globalSum = -Number.MAX_VALUE
+        let localSum = 0
+        for (let i = 0; i < arr.length; i++) {
+            localSum += arr[i]
+            globalSum = Math.max(globalSum, localSum)
+            if (localSum < 0) localSum = 0
+        }
+        return globalSum
+    }
+    alert(maxSubarraySum([1, 2, 3, -2, 5], 5))
+</script>
+
+</html>

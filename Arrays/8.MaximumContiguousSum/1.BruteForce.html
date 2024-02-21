@@ -1,0 +1,21 @@
+<html>
+
+<body></body>
+<script>
+    function maxSubarraySum(arr, N) {
+        // code here
+        let maxSum = -Number.MAX_VALUE
+        for (let i = 0; i < arr.length; i++) {
+            let tSum = 0
+            for (let j = i; j < arr.length; j++) {
+                tSum += arr[j]
+                maxSum = Math.max(maxSum, tSum)
+            }
+
+        }
+        return maxSum
+    }
+    alert(maxSubarraySum([1, 2, 3, -2, 5], 5))
+</script>
+
+</html>
